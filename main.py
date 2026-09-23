@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 
 # created this project by following the "How to use API doc at https://pixe.la/"
 
@@ -34,9 +35,14 @@ response = requests.post(url=graph_endpoint, json=parametersGraph, headers=heade
 
 #Now lets post our today's update
 
+now = datetime.now()
+year=now.year
+month = now.month
+day = now.day
+
 update_url = "https://pixe.la/v1/users/imgp004/graphs/graph1"
 update_params={
-    "date": "20260923",
+    "date": f"{year}{month:02d}{day:02d}",
     "quantity": "8"
 }
 response_update = requests.post(url=update_url, json=update_params, headers=headersGraph)
