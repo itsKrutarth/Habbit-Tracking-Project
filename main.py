@@ -35,6 +35,8 @@ response = requests.post(url=graph_endpoint, json=parametersGraph, headers=heade
 
 #Now lets post our today's update
 
+quantity = input("Please enter number of commits you did today: ")
+
 now = datetime.now()
 year=now.year
 month = now.month
@@ -43,7 +45,7 @@ day = now.day
 update_url = "https://pixe.la/v1/users/imgp004/graphs/graph1"
 update_params={
     "date": f"{year}{month:02d}{day:02d}",
-    "quantity": "8"
+    "quantity": str(quantity)
 }
 response_update = requests.post(url=update_url, json=update_params, headers=headersGraph)
 print(response_update.json())
