@@ -31,3 +31,13 @@ response = requests.post(url=graph_endpoint, json=parametersGraph, headers=heade
 # print(response.json())
 
 # Our graph is now available at https://pixe.la/v1/users/imgp004/graphs/graph1.html
+
+#Now lets post our today's update
+
+update_url = "https://pixe.la/v1/users/imgp004/graphs/graph1"
+update_params={
+    "date": "20260923",
+    "quantity": "8"
+}
+response_update = requests.post(url=update_url, json=update_params, headers=headersGraph)
+print(response_update.json())
